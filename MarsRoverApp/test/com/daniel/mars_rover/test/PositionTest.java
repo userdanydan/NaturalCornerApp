@@ -13,7 +13,7 @@ public class PositionTest {
 	private Position pos;
 	@Before
 	public void setUp() throws Exception {
-		 pos =  new Position(0, 0, Rover.NORTH);
+		 pos =  new Position(0, 0, false);
 	}
 
 	@After
@@ -36,10 +36,10 @@ public class PositionTest {
 	}
 	
 	@Test
-	public void testDirectionGetterAndSetter() {
-		String expected = Rover.NORTH;
-		pos.setDirection(expected);
-		String actual  = pos.getDirection();
+	public void testOccupiedGetterAndSetter() {
+		boolean expected=false;
+		pos.setOccupied(expected);
+		boolean actual = pos.getOccupied();
 		assertEquals(expected, actual);
 	}
 
