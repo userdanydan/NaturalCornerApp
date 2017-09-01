@@ -1,10 +1,14 @@
-package com.daniel.test;
+package com.daniel.mars_rover.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.daniel.mars_rover.Plateau;
+import com.daniel.mars_rover.Rover;
+import com.daniel.mars_rover.RoverMars;
 
 public class RoverMarsTest {
 	private RoverMars roverMars;
