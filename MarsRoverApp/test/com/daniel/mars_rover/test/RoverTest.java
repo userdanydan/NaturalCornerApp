@@ -31,9 +31,52 @@ public class RoverTest {
 	}
 	@Test
 	public void testGetterAndSetterRoverDirection() {
-		String expected = Rover.EAST;
+		char expected = Rover.EAST;
 		rover.setDirection(expected);
-		String actual = rover.getDirection();
+		char actual = rover.getDirection();
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testRotate() {
+		char expected = Rover.EAST;
+		rover.setDirection(Rover.NORTH);
+		rover.rotate('L');
+		char actual = rover.getDirection();
+		assertEquals(expected, actual);
+		
+		expected = Rover.SOUTH;
+		rover.setDirection(Rover.WEST);
+		rover.rotate('R');
+		actual = rover.getDirection();
+		assertEquals(expected, actual);
+		
+	}
+	
+	@Test
+	public void testMove() {
+		Position expected = new Position(3, 2, true);
+		rover.setDirection(Rover.NORTH);
+		rover.move();
+		Position actual= rover.getPosition();
+		assertEquals(expected, actual);
+		
+		expected = new Position(2, 2, true);
+		rover.setDirection(Rover.EAST);
+		rover.move();
+		actual= rover.getPosition();
+		assertEquals(expected, actual);
+		
+		expected = new Position(3, 2, true);
+		rover.setDirection(Rover.WEST);
+		rover.move();
+		actual= rover.getPosition();
+		assertEquals(expected, actual);
+		
+		expected = new Position(3, 1, true);
+		rover.setDirection(Rover.SOUTH);
+		rover.move();
+		actual= rover.getPosition();
 		assertEquals(expected, actual);
 	}
 

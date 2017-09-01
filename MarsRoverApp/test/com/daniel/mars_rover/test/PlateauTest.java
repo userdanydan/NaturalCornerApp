@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.daniel.mars_rover.Plateau;
+import com.daniel.mars_rover.Position;
+import com.daniel.mars_rover.exception.OutOfTheGridException;
 
 public class PlateauTest {
 	
@@ -33,5 +35,6 @@ public class PlateauTest {
 		actual = plateau.getHeight();
 		assertEquals(expected, actual);
 	}
-
+	
+	
 }

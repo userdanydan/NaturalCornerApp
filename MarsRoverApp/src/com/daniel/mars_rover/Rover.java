@@ -1,28 +1,28 @@
 package com.daniel.mars_rover;
 
 public class Rover {
-	public static final String NORTH = "N";
-	public static final String EAST = "E";
-	public static final String WEST = "W";
-	public static final String SOUTH = "S";
+	public static final char NORTH = 'N';
+	public static final char EAST = 'E';
+	public static final char WEST = 'W';
+	public static final char SOUTH = 'S';
 
-	private String direction;
+	private char direction;
 	private Position position;
 
 
-	public Rover(Position position, String direction) {
+	public Rover(Position position, char direction) {
 		// TODO Auto-generated constructor stub
 		this.position=position;
 		this.direction=direction;
 	}
 
 
-	public String getDirection() {
+	public char getDirection() {
 		return direction;
 	}
 
 
-	public void setDirection(String direction) {
+	public void setDirection(char direction) {
 		this.direction = direction;
 	}
 
@@ -35,13 +35,14 @@ public class Rover {
 	public void setPosition(Position position) {
 		this.position = position;
 	}
+	
 
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((direction == null) ? 0 : direction.hashCode());
+		result = prime * result + direction;
 		result = prime * result + ((position == null) ? 0 : position.hashCode());
 		return result;
 	}
@@ -56,10 +57,7 @@ public class Rover {
 		if (getClass() != obj.getClass())
 			return false;
 		Rover other = (Rover) obj;
-		if (direction == null) {
-			if (other.direction != null)
-				return false;
-		} else if (!direction.equals(other.direction))
+		if (direction != other.direction)
 			return false;
 		if (position == null) {
 			if (other.position != null)
@@ -69,6 +67,44 @@ public class Rover {
 		return true;
 	}
 
+
+	public void rotate(char c) {
+		// TODO Auto-generated method stub
+		String directions = "NWSE";
+		int indexDirection = Integer.MAX_VALUE;
+		if(c=='R') {
+			indexDirection = directions.indexOf(direction)+1;
+			indexDirection=(indexDirection==4)?0:indexDirection;
+		}else if(c=='L'){
+			indexDirection = directions.indexOf(this.direction)-1;
+			indexDirection=(indexDirection==-1)?3:indexDirection;
+		}
+		direction=directions.charAt(indexDirection);
+	}
+
+
+
+
+	public void move() {
+		// TODO Auto-generated method stub
+		switch(direction){
+			case EAST : 
+				position.setX(position.getX()-1);
+				break;
+			case NORTH : 
+				position.setY(position.getY()+1);
+				break;
+			case SOUTH :
+				position.setY(position.getY()-1);
+				break;
+			case WEST :
+				position.setX(position.getX()+1);
+				break;
+		}
+	}
+
+
+	
 	
 	
 
