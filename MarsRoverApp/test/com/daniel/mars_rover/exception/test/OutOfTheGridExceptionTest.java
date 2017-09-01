@@ -1,8 +1,11 @@
-package com.daniel.mars_rover.test;
+package com.daniel.mars_rover.exception.test;
+
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,10 +25,20 @@ public class OutOfTheGridExceptionTest {
 
 	@After
 	public void tearDown() throws Exception {
+		roverMars=null;
 	}
 
 	@Test
-	public void test() {
+	public void testException() {
+		
+		Rover rover = roverMars.getRover(0);
+		rover.setDirection(Rover.SOUTH);
+		try {
+			rover.move();
+			fail();
+		}catch (OutOfTheGridException e) {
+			assertTrue(true);
+		}
 		
 	}
 
