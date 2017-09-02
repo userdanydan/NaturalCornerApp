@@ -3,14 +3,12 @@ package com.daniel.mars_rover;
 public class Position {
 	private int x;
 	private int y;
-	private boolean occupied;
 	
 	
-	public Position(int x, int y, boolean occupied) {
+	public Position(int x, int y) {
 		// TODO Auto-generated constructor stub
 		this.x=x;
 		this.y=y;
-		this.occupied=occupied;
 	}
 
 
@@ -33,17 +31,6 @@ public class Position {
 		this.y = y;
 	}
 
-
-	public void setOccupied(boolean occupied) {
-		this.occupied=occupied;
-		
-	}
-
-
-	public boolean isOccupied() {
-		// TODO Auto-generated method stub
-		return occupied;
-	}
 
 
 	@Override

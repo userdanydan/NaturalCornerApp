@@ -35,12 +35,12 @@ public class RoverMarsTest {
 	@Test
 	public void testGetAndSetRover(){
 		//First rover
-		Rover expected = new Rover(new Position(3, 1, false), Rover.NORTH, "");
+		Rover expected = new Rover(new Position(3, 1), Rover.NORTH, "");
 		roverMars.addRover(expected);
 		Rover actual = roverMars.getRover(0);
 		assertEquals(expected, actual);	
 		//Second rover
-		expected = new Rover(new Position(3, 3, false), Rover.EAST, "");
+		expected = new Rover(new Position(3, 3), Rover.EAST, "");
 		roverMars.addRover(expected);
 		actual = roverMars.getRover(1);
 		assertEquals(expected, actual);	
@@ -48,9 +48,9 @@ public class RoverMarsTest {
 	
 	@Test
 	public void testMoveRovers(){
-		Position expected = new Position(1, 3, true);
+		Position expected = new Position(1, 3);
 		//First rover
-		roverMars.addRover(new Rover(new Position(1, 2, true), Rover.NORTH, "LMLMLMLMM"));
+		roverMars.addRover(new Rover(new Position(1, 2), Rover.NORTH, "LMLMLMLMM"));
 		
 		
 		roverMars.moveRovers();
@@ -67,12 +67,12 @@ public class RoverMarsTest {
 		
 		// another rover.
 		
-		roverMars.addRover(new Rover(new Position(1, 1, true),  Rover.WEST, "MMMLRLM"));
+		roverMars.addRover(new Rover(new Position(1, 1),  Rover.WEST, "MMMLRLM"));
 		
 		roverMars.moveRovers();
 
 		// Second rover final's position.
-		expected = new Position(4, 2, true);			
+		expected = new Position(4, 2);			
 		actual = roverMars.getRover(1).getPosition();
 		assertEquals(expected, actual);
 		
@@ -84,12 +84,12 @@ public class RoverMarsTest {
 		
 		
 		//Second rover
-		roverMars.addRover(new Rover(new Position(3, 3, true),  Rover.EAST, "MMRMMRMRRM"));
+		roverMars.addRover(new Rover(new Position(3, 3),  Rover.EAST, "MMRMMRMRRM"));
 		
 		roverMars.moveRovers();
 
 		// Second rover final's position.
-		expected = new Position(5, 1, true);			
+		expected = new Position(5, 1);			
 		actual = roverMars.getRover(2).getPosition();
 		assertEquals(expected, actual);
 		

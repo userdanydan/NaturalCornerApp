@@ -13,7 +13,7 @@ public class PositionTest {
 	private Position pos;
 	@Before
 	public void setUp() throws Exception {
-		 pos =  new Position(0, 0, false);
+		 pos =  new Position(0, 0);
 	}
 
 	@After
@@ -34,14 +34,7 @@ public class PositionTest {
 		assertEquals(expected, actual);
 		
 	}
-	
-	@Test
-	public void testOccupiedGetterAndSetter() {
-		boolean expected=false;
-		pos.setOccupied(expected);
-		boolean actual = pos.isOccupied();
-		assertEquals(expected, actual);
-	}
+
 	
 
 	
