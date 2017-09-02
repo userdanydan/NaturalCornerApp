@@ -1,4 +1,4 @@
-package com.thoughtworks.mars_over.app;
+package com.thoughtworks.mars_rover.app;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

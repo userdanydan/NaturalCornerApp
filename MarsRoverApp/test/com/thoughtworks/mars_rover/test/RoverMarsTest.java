@@ -65,18 +65,7 @@ public class RoverMarsTest {
 		char actualRoverDirection = roverMars.getRover(0).getDirection();
 		assertEquals(expectedRoverDirection, actualRoverDirection);
 		
-		// another rover.
-		
-		roverMars.addRover(new Rover(new Position(1, 1),  Rover.WEST, "MMMLRLM"));
-		
-		roverMars.moveRovers();
 
-		// Second rover final's position.
-		expected = new Position(4, 2);			
-		actual = roverMars.getRover(1).getPosition();
-		assertEquals(expected, actual);
-		
-		//First rover's direction.
 		
 		expectedRoverDirection = Rover.NORTH;
 		actualRoverDirection = roverMars.getRover(0).getDirection();
@@ -90,7 +79,7 @@ public class RoverMarsTest {
 
 		// Second rover final's position.
 		expected = new Position(5, 1);			
-		actual = roverMars.getRover(2).getPosition();
+		actual = roverMars.getRover(1).getPosition();
 		assertEquals(expected, actual);
 		
 		//First rover's direction.

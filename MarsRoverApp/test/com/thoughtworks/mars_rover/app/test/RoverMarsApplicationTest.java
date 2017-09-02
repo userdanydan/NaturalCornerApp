@@ -1,4 +1,4 @@
-package com.thoughtworks.mars_over.app.test;
+package com.thoughtworks.mars_rover.app.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,10 +10,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.thoughtworks.mars_over.app.RoverMarsApplication;
 import com.thoughtworks.mars_rover.Plateau;
 import com.thoughtworks.mars_rover.Position;
 import com.thoughtworks.mars_rover.Rover;
+import com.thoughtworks.mars_rover.app.RoverMarsApplication;
 
 public class RoverMarsApplicationTest {
 	private RoverMarsApplication app;

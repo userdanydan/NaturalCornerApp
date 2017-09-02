@@ -1,6 +1,8 @@
 package com.thoughtworks.mars_rover;
 
-
+// Not mandatory for this exercise but it abstracts the data structure underlying the plateau.
+// He has the knowledge about moving the rovers.
+// Can potentially with little modifications keep tracks of the positions occupied by the rovers or throwing an exception in case of rovers in the same positon.
 public class Plateau {
 	// basic array
 	private Position[][] plateau;
@@ -35,7 +37,8 @@ public class Plateau {
 			case 'R':
 				rover.rotate('R');
 				break;
-		}		
+		}	
+		System.out.println(rover);
 	}
 	// Convenient method to get coordinates' position.
 	public Position getPosition(int x, int y) {

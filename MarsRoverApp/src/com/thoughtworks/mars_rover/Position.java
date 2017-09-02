@@ -1,5 +1,5 @@
 package com.thoughtworks.mars_rover;
-
+// Convenient class to clarify the code and keep the business vocabulary.
 public class Position {
 	private int x;
 	private int y;

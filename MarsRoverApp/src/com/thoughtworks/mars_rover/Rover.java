@@ -1,5 +1,4 @@
 package com.thoughtworks.mars_rover;
-
 public class Rover {
 	public static final char NORTH = 'N';
 	public static final char EAST = 'E';
@@ -68,10 +67,11 @@ public class Rover {
 		this.alreayMoved = alreayMoved;
 	}
 
+	// A rover has the responsability of moving and rotating after the object Plateau communicates the intend to move or rotate.
 
 	public void rotate(char c) {
 		// TODO Auto-generated method stub
-		String directions = "NWSE";
+		String directions = "NESW";
 		int indexDirection = Integer.MAX_VALUE;
 		if(c=='R') {
 			indexDirection = rotateRight(directions);
@@ -104,7 +104,7 @@ public class Rover {
 		// TODO Auto-generated method stub
 		switch(direction){
 			case EAST : 
-				position.setX(position.getX()-1);
+				position.setX(position.getX()+1);
 				break;
 			case NORTH : 
 				position.setY(position.getY()+1);
@@ -113,7 +113,7 @@ public class Rover {
 				position.setY(position.getY()-1);
 				break;
 			case WEST :
-				position.setX(position.getX()+1);
+				position.setX(position.getX()-1);
 				break;
 		}
 	}
