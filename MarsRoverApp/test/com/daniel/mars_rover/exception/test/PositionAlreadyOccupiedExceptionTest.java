@@ -19,8 +19,8 @@ public class PositionAlreadyOccupiedExceptionTest extends RuntimeException {
 	@Before
 	public void setUp() throws Exception {
 		this.roverMars = new RoverMars(new Plateau(2, 2), new ArrayList<Rover>());
-		roverMars.addRover(new Rover(new Position(0, 0, true), Rover.NORTH));
-		roverMars.addRover(new Rover(new Position(0, 1, true), Rover.SOUTH));
+		roverMars.addRover(new Rover(new Position(0, 0, true), Rover.NORTH, ""));
+		roverMars.addRover(new Rover(new Position(0, 1, true), Rover.SOUTH, ""));
 	}
 
 	@After

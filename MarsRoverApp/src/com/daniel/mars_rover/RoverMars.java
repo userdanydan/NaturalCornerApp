@@ -32,6 +32,8 @@ public class RoverMars {
 
 	public boolean addRover(Rover rover) {
 		// TODO Auto-generated method stub
+		//once a rover has landed, the plateau records its position.
+		plateau.getPosition(rover.getPosition().getX(), rover.getPosition().getY()).setOccupied(true);
 		return this.rovers.add(rover);
 	}
 
@@ -42,8 +44,14 @@ public class RoverMars {
 
 	public void moveRovers() {
 		// TODO Auto-generated method stub
-		
-		
+		for(Rover rover : rovers) {
+			if(!rover.isAlreayMoved()) {
+				for(char instruction : rover.getInstructions().toCharArray()) {
+					plateau.moveRover(rover, instruction);
+				}
+			}	
+			rover.setAlreayMoved(true);
+		}
 	}
 
 }

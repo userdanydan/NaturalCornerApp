@@ -39,8 +39,19 @@ public class PositionTest {
 	public void testOccupiedGetterAndSetter() {
 		boolean expected=false;
 		pos.setOccupied(expected);
-		boolean actual = pos.getOccupied();
+		boolean actual = pos.isOccupied();
 		assertEquals(expected, actual);
 	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

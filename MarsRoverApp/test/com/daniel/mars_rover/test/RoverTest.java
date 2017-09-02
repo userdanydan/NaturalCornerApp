@@ -13,7 +13,7 @@ public class RoverTest {
 	private Rover rover;
 	@Before
 	public void setUp() throws Exception {
-		 rover =  new Rover(new Position(3, 1, true), Rover.NORTH);
+		 rover =  new Rover(new Position(3, 1, true), Rover.NORTH, "");
 	}
 
 	@After
@@ -35,6 +35,15 @@ public class RoverTest {
 		rover.setDirection(expected);
 		char actual = rover.getDirection();
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetterAndSetterRoverInstructions() {
+		String expected  = "LMLMLMLMM";
+		rover.setInstructions(expected);
+		String actual = rover.getInstructions();
+		assertEquals(expected, actual);
+
 	}
 	
 	@Test

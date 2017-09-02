@@ -40,19 +40,16 @@ public class Position {
 	}
 
 
-	public boolean getOccupied() {
+	public boolean isOccupied() {
 		// TODO Auto-generated method stub
 		return occupied;
 	}
-
-
 
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (occupied ? 1231 : 1237);
 		result = prime * result + x;
 		result = prime * result + y;
 		return result;
@@ -68,14 +65,22 @@ public class Position {
 		if (getClass() != obj.getClass())
 			return false;
 		Position other = (Position) obj;
-		if (occupied != other.occupied)
-			return false;
 		if (x != other.x)
 			return false;
 		if (y != other.y)
 			return false;
 		return true;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Position [x=" + x + ", y=" + y + "]";
+	}
+
+
+
+	
 
 
 	
