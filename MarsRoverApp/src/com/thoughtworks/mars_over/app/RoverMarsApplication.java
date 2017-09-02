@@ -1,15 +1,17 @@
-package com.daniel.mars_over.app;
+package com.thoughtworks.mars_over.app;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.daniel.mars_rover.Plateau;
-import com.daniel.mars_rover.Position;
-import com.daniel.mars_rover.Rover;
-import com.daniel.mars_rover.RoverMars;
+import com.thoughtworks.mars_rover.Plateau;
+import com.thoughtworks.mars_rover.Position;
+import com.thoughtworks.mars_rover.Rover;
+import com.thoughtworks.mars_rover.RoverMars;
 
 public class RoverMarsApplication {
 	private String fileInput;
@@ -22,10 +24,13 @@ public class RoverMarsApplication {
 
 	public static void main(String ... args) {
 		if(args.length==0 || args.length>1) {
-			System.err.println("Error : Only one input argument allowed");
+			System.err.println("Error : Only one input argument allowed.");
+			System.err.println("Please, use javac and java commands in order to compile and run the program.");
+			System.err.println("Add exactly one argument : the URI of the input text file in your file system.");
 			System.exit(-1);			
 		}
-		RoverMarsApplication app = new RoverMarsApplication(args[0]);
+		String txtURI = args[0];
+		RoverMarsApplication app = new RoverMarsApplication(txtURI);
 		app.run();	
 	}
 
@@ -36,7 +41,23 @@ public class RoverMarsApplication {
 		RoverMars roverMarsMission = new RoverMars(plateau, rovers);
 		rovers.forEach(r->roverMarsMission.addRover(r));
 		roverMarsMission.moveRovers();
-		rovers.forEach(System.out::println);
+		StringBuilder sb = new StringBuilder();
+		rovers.forEach(ro->sb.append(
+						   ro.getPosition().getX()+" "+
+						   ro.getPosition().getY()+" "+
+						   ro.getDirection()+ "\n") 
+						);
+		createFileOutput(sb.toString());
+		System.out.println(sb.toString());
+	}
+
+	public void createFileOutput(String string) {
+		// TODO Auto-generated method stub
+		try(BufferedWriter outputStream = Files.newBufferedWriter(Paths.get("output.txt"))) {
+			outputStream.write(string);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public List<Rover> initilazeRovers() {

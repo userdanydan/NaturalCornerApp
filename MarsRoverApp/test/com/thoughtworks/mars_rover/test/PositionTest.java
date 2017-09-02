@@ -1,4 +1,4 @@
-package com.daniel.mars_rover.test;
+package com.thoughtworks.mars_rover.test;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.daniel.mars_rover.Position;
-import com.daniel.mars_rover.Rover;
+import com.thoughtworks.mars_rover.Position;
+import com.thoughtworks.mars_rover.Rover;
 
 public class PositionTest {
 	private Position pos;

@@ -1,4 +1,4 @@
-package com.daniel.mars_rover.exception.test;
+package com.thoughtworks.mars_rover.exception.test;
 
 import static org.junit.Assert.*;
 
@@ -9,11 +9,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.daniel.mars_rover.Plateau;
-import com.daniel.mars_rover.Position;
-import com.daniel.mars_rover.Rover;
-import com.daniel.mars_rover.RoverMars;
-import com.daniel.mars_rover.exception.OutOfTheGridException;
+import com.thoughtworks.mars_rover.Plateau;
+import com.thoughtworks.mars_rover.Position;
+import com.thoughtworks.mars_rover.Rover;
+import com.thoughtworks.mars_rover.RoverMars;
+import com.thoughtworks.mars_rover.exception.OutOfTheGridException;
 
 public class OutOfTheGridExceptionTest {
 	private RoverMars roverMars;

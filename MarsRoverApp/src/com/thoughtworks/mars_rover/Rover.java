@@ -1,4 +1,4 @@
-package com.daniel.mars_rover;
+package com.thoughtworks.mars_rover;
 
 public class Rover {
 	public static final char NORTH = 'N';

@@ -1,4 +1,4 @@
-package com.daniel.mars_rover;
+package com.thoughtworks.mars_rover;
 
 import java.util.ArrayList;
 import java.util.List;

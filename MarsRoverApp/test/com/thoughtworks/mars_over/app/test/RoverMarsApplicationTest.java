@@ -1,4 +1,4 @@
-package com.daniel.mars_over.app.test;
+package com.thoughtworks.mars_over.app.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,10 +10,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.daniel.mars_over.app.RoverMarsApplication;
-import com.daniel.mars_rover.Plateau;
-import com.daniel.mars_rover.Position;
-import com.daniel.mars_rover.Rover;
+import com.thoughtworks.mars_over.app.RoverMarsApplication;
+import com.thoughtworks.mars_rover.Plateau;
+import com.thoughtworks.mars_rover.Position;
+import com.thoughtworks.mars_rover.Rover;
 
 public class RoverMarsApplicationTest {
 	private RoverMarsApplication app;
@@ -63,7 +63,14 @@ public class RoverMarsApplicationTest {
 		List<Rover> actuals = app.initilazeRovers();	
 		Assert.assertArrayEquals(expecteds.toArray(new Rover[0]), actuals.toArray(new Rover[0]));
 	}
-
+	
+//	
+//
+//	@Test
+//	public void testCreateFileOutput() {
+//		app.run();
+//		String 
+//	}
 }
 
 
