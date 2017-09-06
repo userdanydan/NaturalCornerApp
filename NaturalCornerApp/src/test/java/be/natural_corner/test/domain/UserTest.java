@@ -2,6 +2,9 @@ package be.natural_corner.test.domain;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,125 +24,21 @@ public class UserTest {
 	}
 
 	@Test
-	public void testGetId() {
-		int expected = 100;
+	public void testGetterAndSetterId() {
+		long expected = 100;
 		user.setId(expected);
-		int actual = user.getId();
+		long actual = user.getId();
+	}
+	
+	@Test
+	public void testGetterAndSetterInscriptionDate() {
+		LocalDateTime localDateTimeNow = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+		String expected = localDateTimeNow.format(formatter);
+		this.user.setInscriptionDateTime(localDateTimeNow);
+		String actual = this.user.getInscriptionDateTime();
+		assertEquals(expected, actual);
 	}
 
-	@Test
-	public void testSetId() {
-		
-	}
-
-	@Test
-	public void testGetFirstName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetFirstName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetLastName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetLastName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetNickName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetNickName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetPassword() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetAddress() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetAddress() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetPassword() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGeteMailAddress() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSeteMailAddress() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetPhone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetPhone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetInscriptionDateTime() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetInscriptionDateTime() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetIpAddress() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetIpAddress() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testUser() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testUserStringString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testUserIntStringStringStringStringAddressStringStringLocalDateTimeString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
 
 }

@@ -28,8 +28,14 @@ public class UserServiceImpl implements IUserService{
 	}
 
 	@Override
-	public User getUserById(int id) {
-		return userRepo.findOne(String.valueOf(id));
+	public User getUserById(Long id) {
+		List<User> users = userRepo.findAll();
+		for(User user : users) {
+			if(user.getId()==id) {
+				return user;
+			}
+		}
+		return null;
 	}
 
 	@Override
@@ -52,7 +58,7 @@ public class UserServiceImpl implements IUserService{
 	
 	
 	@Override
-	public void deleteUser(int id) {
+	public void deleteUser(Long id) {
 		// TODO Auto-generated method stub
 		userRepo.delete(String.valueOf(id));
 	}

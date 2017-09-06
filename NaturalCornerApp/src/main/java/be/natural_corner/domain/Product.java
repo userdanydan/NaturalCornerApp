@@ -2,7 +2,14 @@ package be.natural_corner.domain;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 public class Product {
+	@Id
+	@GeneratedValue
 	private int id;
 	private String productName;
 	private BigDecimal unitPrice;

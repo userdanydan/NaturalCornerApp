@@ -1,4 +1,4 @@
-package be.natural_corner;
+package be.natural_corner.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

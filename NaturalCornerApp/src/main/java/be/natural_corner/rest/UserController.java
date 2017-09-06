@@ -2,6 +2,8 @@ package be.natural_corner.rest;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +20,17 @@ import be.natural_corner.service.IUserService;
 
 public class UserController {
 
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class); 
 	@Autowired
 	private IUserService service;
 
 
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> getAllUsers() {
+		
 		List<User> tous = service.getAllUsers();
+		logger.debug("public ResponseEntity<List<User>> getAllUsers() from UserController");
+		logger.debug(tous.toString());
 		return new ResponseEntity<List<User>>(tous, HttpStatus.OK);
 	}
 
@@ -32,25 +38,28 @@ public class UserController {
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	public ResponseEntity<User> addUser(@RequestBody User u) {
 		service.createUser(u);
+		logger.debug("public ResponseEntity<List<User>> getAllUsers() from UserController");
+		logger.debug(u.toString());
 		return new ResponseEntity<User>(u, HttpStatus.CREATED);
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value = "/users/{id}")
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
 	public ResponseEntity<User> getUserById(@PathVariable("id") String id) {
 
-		User resultat = service.getUserById(Integer.parseInt(id));
+		User resultat = service.getUserById(Long.parseLong(id));
 		if (resultat != null) {
+			logger.debug(resultat.toString());
 			return new ResponseEntity<User>(resultat, HttpStatus.OK);
 		} else
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value = "/Users/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<User> delete(@PathVariable("id") String id) {
-		User result = service.getUserById(Integer.parseInt(id));
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<User> delete(@PathVariable("id") Long id) {
+		User result = service.getUserById(id);
 		service.deleteUser(result);
+		logger.debug(result.toString());
 		return new ResponseEntity<User>(result, HttpStatus.OK);
 
 	}
