@@ -24,6 +24,17 @@ public class UserController {
 	@Autowired
 	private IUserService service;
 
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
+	public ResponseEntity<User> getUserById(@PathVariable("id") String id) {
+		
+		User resultat = service.getUserById(Long.parseLong(id));
+		if (resultat != null) {
+			logger.debug(resultat.toString());
+			return new ResponseEntity<User>(resultat, HttpStatus.OK);
+		} else
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+	}
+	
 
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> getAllUsers() {
@@ -43,16 +54,6 @@ public class UserController {
 		return new ResponseEntity<User>(u, HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-	public ResponseEntity<User> getUserById(@PathVariable("id") String id) {
-
-		User resultat = service.getUserById(Long.parseLong(id));
-		if (resultat != null) {
-			logger.debug(resultat.toString());
-			return new ResponseEntity<User>(resultat, HttpStatus.OK);
-		} else
-			return new ResponseEntity(HttpStatus.NOT_FOUND);
-	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)

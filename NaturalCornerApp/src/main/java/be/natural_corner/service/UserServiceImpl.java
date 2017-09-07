@@ -7,18 +7,18 @@ import org.springframework.stereotype.Service;
 
 import be.natural_corner.domain.Address;
 import be.natural_corner.domain.User;
-import be.natural_corner.repositories.UserRepository;
+import be.natural_corner.repositories.IUserRepository;
 @Service
 public class UserServiceImpl implements IUserService{
 
 	@Autowired
-	UserRepository userRepo;
+	IUserRepository userRepo;
 	
-	public UserRepository getUserRepo() {
+	public IUserRepository getUserRepo() {
 		return userRepo;
 	}
 
-	public void setUserRepo(UserRepository userRepo) {
+	public void setUserRepo(IUserRepository userRepo) {
 		this.userRepo = userRepo;
 	}
 

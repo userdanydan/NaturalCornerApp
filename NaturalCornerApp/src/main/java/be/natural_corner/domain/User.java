@@ -6,14 +6,16 @@ import java.time.format.DateTimeFormatter;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="Users")
 public class User {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy  = GenerationType.AUTO)
 	private Long userId;
 	private String firstName;
 	private String lastName;
@@ -21,6 +23,7 @@ public class User {
 	private String password;
 	@Embedded
 	private Address address;
+	@NotNull
 	private String eMailAddress;
 	private String phone;
 	private LocalDateTime inscriptionDateTime;

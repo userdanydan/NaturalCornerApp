@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import be.natural_corner.domain.User;
 
-public interface UserRepository extends JpaRepository<User, String>{
+public interface IUserRepository extends JpaRepository<User, String>{
 	
 
 }

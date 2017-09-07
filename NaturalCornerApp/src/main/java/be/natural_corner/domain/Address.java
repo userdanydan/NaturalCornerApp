@@ -2,9 +2,12 @@ package be.natural_corner.domain;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Embeddable
 public class Address {
+	@Transient
+	private Long addressId;
 	private String street;
 	private String number;
 	private String boxNumber;
@@ -27,6 +30,16 @@ public class Address {
 		this.town = town;
 		this.country = country;
 	}
+
+	public Long getAddressId() {
+		return addressId;
+	}
+
+
+	public void setAddressId(Long addressId) {
+		this.addressId = addressId;
+	}
+
 
 	public String getStreet() {
 		return street;

@@ -1,23 +1,37 @@
 package be.natural_corner.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+//@Entity
+//@Table(name="Categories")
 public class Category {
-	private int id;
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long categoryId;
+//	@NotNull
 	private String categoryName;
+//	@OneToMany
 	private Category subCategory;
 	public Category() {
 		// TODO Auto-generated constructor stub
 	}
-	public Category(int id, String categoryName, Category subCategory) {
+	public Category(Long id, String categoryName, Category subCategory) {
 		super();
-		this.id = id;
+		this.categoryId = id;
 		this.categoryName = categoryName;
 		this.subCategory = subCategory;
 	}
-	public int getId() {
-		return id;
+	public Long getId() {
+		return this.categoryId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(Long id) {
+		this.categoryId = id;
 	}
 	public String getCategoryName() {
 		return categoryName;
@@ -36,7 +50,6 @@ public class Category {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((categoryName == null) ? 0 : categoryName.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((subCategory == null) ? 0 : subCategory.hashCode());
 		return result;
 	}
@@ -54,8 +67,6 @@ public class Category {
 				return false;
 		} else if (!categoryName.equals(other.categoryName))
 			return false;
-		if (id != other.id)
-			return false;
 		if (subCategory == null) {
 			if (other.subCategory != null)
 				return false;
@@ -65,7 +76,7 @@ public class Category {
 	}
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", categoryName=" + categoryName + ", subCategory=" + subCategory + "]";
+		return "Category [id=" + categoryId + ", categoryName=" + categoryName + ", subCategory=" + subCategory + "]";
 	}
 	
 }
